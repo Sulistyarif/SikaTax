@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">MIKURO</string>
+    <string name="app_name">SIKA TAX</string>
+
+    <string name="menu1">Petunjuk</string>
+    <string name="menu2">Materi</string>
+    <string name="menu3">Jurnal</string>
+    <string name="menu4">Laporan Keuangan</string>
+    <string name="menu5">Analisis Laporan Keuangan</string>
+    <string name="menu6">Pajak UMKM</string>
+    <string name="menu7">Pengaturan</string>
+    <string name="menu8">Tentang</string>
+
 </resources>

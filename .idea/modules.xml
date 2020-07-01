@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TestAkuMikro.iml" filepath="$PROJECT_DIR$/TestAkuMikro.iml" group="TestAkuMikro" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="TestAkuMikro/app" />
+      <module fileurl="file://$PROJECT_DIR$/SikaTax.iml" filepath="$PROJECT_DIR$/SikaTax.iml" group="SikaTax" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="SikaTax/app" />
     </modules>
   </component>
 </project>

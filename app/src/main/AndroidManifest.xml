@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zakiadev.testakumikro">
+    package="com.zakiadev.sikatax">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
@@ -11,41 +11,40 @@
         android:roundIcon="@mipmap/ic_launcher_fixed_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name="com.zakiadev.sikatax.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingAwalPerusahaanActivity"/>
-        <activity android:name=".SettingNeracaAwalActivity"/>
-        <activity android:name=".MenuUtamaActivity"/>
-        <activity android:name=".MenuLaporanAcvtivity"/>
-        <activity android:name=".MenuPengaturanActivity"/>
-        <activity android:name=".LaporanJurnalUmum"/>
-        <activity android:name=".LaporanNeracaSaldoActivity"/>
-        <activity android:name=".LaporanLabaRugi"/>
-        <activity android:name=".LaporanNeracaActivity"/>
-        <activity android:name=".LaporanPerubahanEkuitas"/>
-        <activity android:name=".LaporanArusKas2"/>
-        <activity android:name=".SettingDataPerusahaan"/>
-        <activity android:name=".PilihDebetActivity"/>
-        <activity android:name=".PilihKreditActivity"/>
-        <activity android:name=".JurnalKecActivity"/>
-        <activity android:name=".EditDataJurnalActivity"/>
-        <activity android:name=".TambahDataJurnalActivity"/>
-        <activity android:name=".ClearDataActivity"/>
-        <activity android:name=".DaftarAkunActivity"/>
-        <activity android:name=".DaftarJenisAkun"/>
-        <activity android:name=".MateriWebView1"/>
-        <activity android:name=".MateriWebView2"/>
-        <activity android:name=".MenuUtamaMateri"/>
-        <activity android:name=".PetunjukActivity"/>
-        <activity android:name=".AboutAppsActivity"/>
-        <activity android:name=".TestUIActivity"/>
-        <activity android:name=".AboutDevActivity"/>
-        <activity android:name=".IntroActivity"/>
+        <activity android:name="com.zakiadev.sikatax.SettingAwalPerusahaanActivity"/>
+        <activity android:name="com.zakiadev.sikatax.SettingNeracaAwalActivity"/>
+        <activity android:name="com.zakiadev.sikatax.MenuUtamaActivity"/>
+        <activity android:name="com.zakiadev.sikatax.MenuLaporanAcvtivity"/>
+        <activity android:name="com.zakiadev.sikatax.MenuPengaturanActivity"/>
+        <activity android:name="com.zakiadev.sikatax.LaporanJurnalUmum"/>
+        <activity android:name="com.zakiadev.sikatax.LaporanNeracaSaldoActivity"/>
+        <activity android:name="com.zakiadev.sikatax.LaporanLabaRugi"/>
+        <activity android:name="com.zakiadev.sikatax.LaporanNeracaActivity"/>
+        <activity android:name="com.zakiadev.sikatax.LaporanPerubahanEkuitas"/>
+        <activity android:name="com.zakiadev.sikatax.LaporanArusKas2"/>
+        <activity android:name="com.zakiadev.sikatax.SettingDataPerusahaan"/>
+        <activity android:name="com.zakiadev.sikatax.PilihDebetActivity"/>
+        <activity android:name="com.zakiadev.sikatax.PilihKreditActivity"/>
+        <activity android:name="com.zakiadev.sikatax.JurnalKecActivity"/>
+        <activity android:name="com.zakiadev.sikatax.EditDataJurnalActivity"/>
+        <activity android:name="com.zakiadev.sikatax.TambahDataJurnalActivity"/>
+        <activity android:name="com.zakiadev.sikatax.ClearDataActivity"/>
+        <activity android:name="com.zakiadev.sikatax.DaftarAkunActivity"/>
+        <activity android:name="com.zakiadev.sikatax.DaftarJenisAkun"/>
+        <activity android:name="com.zakiadev.sikatax.MateriWebView1"/>
+        <activity android:name="com.zakiadev.sikatax.MateriWebView2"/>
+        <activity android:name="com.zakiadev.sikatax.MenuUtamaMateri"/>
+        <activity android:name="com.zakiadev.sikatax.PetunjukActivity"/>
+        <activity android:name="com.zakiadev.sikatax.AboutAppsActivity"/>
+        <activity android:name="com.zakiadev.sikatax.AboutDevActivity"/>
+        <activity android:name="com.zakiadev.sikatax.IntroActivity"/>
 
     </application>
 
