@@ -45,6 +45,9 @@
         <activity android:name="com.zakiadev.sikatax.AboutAppsActivity"/>
         <activity android:name="com.zakiadev.sikatax.AboutDevActivity"/>
         <activity android:name="com.zakiadev.sikatax.IntroActivity"/>
+        <activity android:name=".SubMenuLaporanKeuangan"/>
+        <activity android:name=".SubMenuPajakUMKM"/>
+        <activity android:name=".LaporanPajakUMKM"/>
 
     </application>
 

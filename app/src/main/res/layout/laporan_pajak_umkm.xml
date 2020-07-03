@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvTitlePengaturan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#111"
+            android:layout_marginHorizontal="15dp"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="40dp"
+            android:background="@drawable/bottom_only_border"
+            android:text="Pajak UMKM" />
+
+        <de.codecrafters.tableview.TableView
+            android:id="@+id/tvPajak"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
