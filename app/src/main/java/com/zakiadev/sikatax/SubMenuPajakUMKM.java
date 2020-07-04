@@ -33,13 +33,11 @@ public class SubMenuPajakUMKM extends AppCompatActivity {
         lvMenuPajak.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 0){
+
                     Intent intent = new Intent(SubMenuPajakUMKM.this, LaporanPajakUMKM.class);
-//                    intent.putExtra("pilihanMenu",i);
+                    intent.putExtra("persenPajak",i);
                     startActivity(intent);
-                }else {
-//                    pajak 0.5%
-                }
+
             }
         });
 

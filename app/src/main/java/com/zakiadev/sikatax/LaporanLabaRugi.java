@@ -119,7 +119,7 @@ public class LaporanLabaRugi extends AppCompatActivity {
                 webView.loadUrl("javascript:setNamaPersLabaRugi('" + dataPerusahaan.getNamaPers() + "');");
                 webView.loadUrl("javascript:setPeriode('" + strBulan + "','" + strTahun + "');");
 
-//                pengambilan data untuk pendapatan
+//                pengambilan data untuk pendapatan (pendapatan operasional)
                 ArrayList<DataSaldo> dataSaldos = new DBAdapterMix(LaporanLabaRugi.this).selectRiwayatJenisBlnThnMarLabaRugi(5, bulanDipilih, tahunDipilih);
                 DataSaldo dataSaldo;
 
@@ -161,7 +161,7 @@ public class LaporanLabaRugi extends AppCompatActivity {
 
                 webView.loadUrl("javascript:separator('" + "Total Beban Operasional" + "', '" + totalBeban + "');");
 
-//                pengambilan data untuk pendapatan luar usaha
+//                pengambilan data untuk pendapatan luar usaha (pendapatan non operasional)
                 ArrayList<DataSaldo> dataSaldos2 = new DBAdapterMix(LaporanLabaRugi.this).selectRiwayatJenisBlnThnMarLabaRugi(6, bulanDipilih, tahunDipilih);
                 DataSaldo dataSaldo2;
 

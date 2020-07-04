@@ -26,11 +26,103 @@
             android:background="@drawable/bottom_only_border"
             android:text="Pajak UMKM" />
 
-        <de.codecrafters.tableview.TableView
-            android:id="@+id/tvPajak"
-            android:padding="10dp"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spNeracaSaldobulan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Spinner
+                android:id="@+id/spNeracaSaldoTahun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <TableLayout
+            android:id="@+id/tabla_cuerpo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:text="Besar Pajak"
+                    android:textAlignment="center"
+                    android:textColor="#111"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:text="Nilai"
+                    android:textAlignment="center"
+                    android:textColor="#111"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="10"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+                    <TextView
+                        android:id="@+id/tvBesarPajak"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5"
+                        android:textSize="18sp"
+                        android:textColor="#111"
+                        android:background="@drawable/cell_shape"
+                        android:textAlignment="center"
+                        android:padding="5dp"
+                        android:text="Nilai"/>
+
+                    <TextView
+                        android:id="@+id/tvNilaiPajak"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5"
+                        android:textSize="18sp"
+                        android:textColor="#111"
+                        android:background="@drawable/cell_shape"
+                        android:textAlignment="center"
+                        android:padding="5dp"
+                        android:text="Nilai"/>
+
+            </TableRow>
+
+        </TableLayout>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
