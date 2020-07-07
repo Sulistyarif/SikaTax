@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -139,7 +140,7 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         assert window != null;
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
 //        window.setBackgroundDrawableResource(R.drawable.rounded_background);
-        window.setBackgroundDrawableResource(R.drawable.cell_shape);
+//        window.setBackgroundDrawableResource(R.drawable.cell_shape);
         WindowManager.LayoutParams layoutParams = window.getAttributes();
         layoutParams.y = -50;
         layoutParams.x = 120;
@@ -155,10 +156,17 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
             }
         });
 
+        DecimalFormat df = new DecimalFormat("#.##");
+
         tvdaGpm = dialog.findViewById(R.id.tvdaGpm);
         tvdaNpm = dialog.findViewById(R.id.tvdaNpm);
-        tvdaGpm = dialog.findViewById(R.id.tvdaRoa);
-        tvdaGpm = dialog.findViewById(R.id.tvdaRoe);
+        tvdaRoa = dialog.findViewById(R.id.tvdaRoa);
+        tvdaRoe = dialog.findViewById(R.id.tvdaRoe);
+
+        tvdaIsiGpm = dialog.findViewById(R.id.tvdaIsiGpm);
+        tvdaIsiNpm = dialog.findViewById(R.id.tvdaIsiNpm);
+        tvdaIsiRoa = dialog.findViewById(R.id.tvdaIsiRoa);
+        tvdaIsiRoe = dialog.findViewById(R.id.tvdaIsiRoe);
 
         tvdaGpm.setText("Gross Profit Margin = " + nilaiGpm + "%");
         tvdaNpm.setText("Gross Profit Margin = " + nilaiNpm + "%");
@@ -166,7 +174,9 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         tvdaRoe.setText("Gross Profit Margin = " + nilaiRoe + "%");
 
         tvdaIsiGpm.setText("Angka " + nilaiGpm  + "% berarti bahwa dari total penjualan bersih yang didapatkan, sebesar " + (100-nilaiGpm) + "% digunakan hanya untuk menutup Harga Pokok Penjualan sehingga yang tersisa hanya sebesar " + nilaiGpm + "% yang digunakan untuk menutup biaya operasional dan biaya lain. Jika biaya-biaya tersebut tidak melebihi " + nilaiGpm + "% maka perusahaan masih mendapatkan laba. Namun, jika biaya-biaya tersebut lebih besar dari " + nilaiGpm + "% maka perusahaan tidak mendapatkan laba sehingga perlu adanya penelusuran tentang adanya kemungkinan terdapat ketidakefisienan dalam hal biaya-biaya khususnya biaya yang berhubungan dengan Harga Pokok Penjualan.");
-
+        tvdaIsiNpm.setText("Angka " + nilaiNpm + "% berarti bahwa dari total penjualan bersih yang didapatkan, sebesar " + (100-nilaiNpm) + "% digunakan untuk menutup semua biaya seperti Harga Pokok Penjualan, Biaya Operasional (Gaji, Sewa, Pemasaran, dll), dan termasuk pajak yang dibayarkan");
+        tvdaIsiRoa.setText("Angka " + nilaiRoa + "% berarti bahwa perusahaan mampu menghasilkan laba sebesar " + nilaiRoa +"% dari total aset yang digunakan untuk menghasilkan laba tersebut.");
+        tvdaIsiRoe.setText("Angka " + nilaiRoe +"% berarti bahwa perusahaan mampu memberikan imbal hasil usaha untuk setiap Rp 1 yang diinvestasikan di perusahaan, pemilik mendapatkan tambahan nilai ekuitas Rp" + (df.format(Double.valueOf(nilaiRoe)/100)) + ". Dengan kata lain, dari total investasi yang dilakukan di perusahaan, pemilik atau investor mendapatkan kenaikan nilai ekuitas sebesar " + nilaiRoe + "%. ");
 
     }
 

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SikaTax.iml" filepath="$PROJECT_DIR$/SikaTax.iml" group="SikaTax" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SikaTax-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SikaTax-app.iml" group="SikaTax/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/StudioProjects-SikaTax.iml" filepath="$PROJECT_DIR$/.idea/modules/StudioProjects-SikaTax.iml" group="SikaTax" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="SikaTax/app" />
     </modules>
   </component>

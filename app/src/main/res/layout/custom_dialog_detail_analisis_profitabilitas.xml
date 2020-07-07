@@ -52,7 +52,7 @@
                 android:layout_marginRight="20dp"
                 android:text="testing"
                 android:textColor="#111"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvdaNpm"
@@ -75,7 +75,7 @@
                 android:layout_marginRight="20dp"
                 android:text="testing"
                 android:textColor="#111"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvdaRoa"
@@ -98,7 +98,7 @@
                 android:layout_marginRight="20dp"
                 android:text="testing"
                 android:textColor="#111"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvdaRoe"
@@ -121,7 +121,7 @@
                 android:layout_marginRight="20dp"
                 android:text="testing"
                 android:textColor="#111"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/btTutupDetailAnalisis"
@@ -129,6 +129,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="45dp"
                 android:paddingRight="45dp"
+                android:layout_marginBottom="10dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:text="Tutup" />
