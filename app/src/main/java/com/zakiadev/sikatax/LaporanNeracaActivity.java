@@ -124,6 +124,8 @@ public class LaporanNeracaActivity extends AppCompatActivity {
                 webView.loadUrl("javascript:setPeriode('" + strBulan + "','" + strTahun + "');");
 
                 int aktivaLancar = 0;
+
+//                digunakan untuk pengecekan
                 boolean isFirst = false;
                 isFirst = new DBAdapterMix(LaporanNeracaActivity.this).isFirstMonth(bulanDipilih,tahunDipilih);
                 Log.i("nilaiBoolean", "Nilainya: " + String.valueOf(isFirst));

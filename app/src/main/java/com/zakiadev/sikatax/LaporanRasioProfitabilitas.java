@@ -14,7 +14,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.zakiadev.sikatax.data.DataSaldo;
+import com.zakiadev.sikatax.db.DBAdapterMix;
+
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -29,6 +33,7 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
     int bulanDipilih, tahunDipilih;
     String strBulan, strTahun;
     int nilaiGpm, nilaiNpm, nilaiRoa, nilaiRoe;
+    int pendapatanOp, pendapatanNonOp, bebanOp, bebanNonOp;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -107,6 +112,12 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         tvNilaiRoe = findViewById(R.id.tvNilaiRoe);
         btDetailAnalisis = findViewById(R.id.btDetailProfitabilitas);
 
+        pendapatanOp = 0;
+        pendapatanNonOp = 0;
+        bebanOp = 0;
+        bebanNonOp = 0;
+
+//        di dalam getNilaiGpm terdapat method memasukkan nilai pendapatan dan beban
         nilaiGpm = getNilaiGpm();
         nilaiNpm = getNilaiNpm();
         nilaiRoa = getNilaiRoa();
@@ -156,7 +167,7 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
             }
         });
 
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df = new DecimalFormat("#0.00");
 
         tvdaGpm = dialog.findViewById(R.id.tvdaGpm);
         tvdaNpm = dialog.findViewById(R.id.tvdaNpm);
@@ -173,14 +184,19 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         tvdaRoa.setText("Gross Profit Margin = " + nilaiRoa + "%");
         tvdaRoe.setText("Gross Profit Margin = " + nilaiRoe + "%");
 
-        tvdaIsiGpm.setText("Angka " + nilaiGpm  + "% berarti bahwa dari total penjualan bersih yang didapatkan, sebesar " + (100-nilaiGpm) + "% digunakan hanya untuk menutup Harga Pokok Penjualan sehingga yang tersisa hanya sebesar " + nilaiGpm + "% yang digunakan untuk menutup biaya operasional dan biaya lain. Jika biaya-biaya tersebut tidak melebihi " + nilaiGpm + "% maka perusahaan masih mendapatkan laba. Namun, jika biaya-biaya tersebut lebih besar dari " + nilaiGpm + "% maka perusahaan tidak mendapatkan laba sehingga perlu adanya penelusuran tentang adanya kemungkinan terdapat ketidakefisienan dalam hal biaya-biaya khususnya biaya yang berhubungan dengan Harga Pokok Penjualan.");
+        tvdaIsiGpm.setText("Angka " + nilaiGpm + "% berarti bahwa dari total penjualan bersih yang didapatkan, sebesar " + (100-nilaiGpm) + "% digunakan hanya untuk menutup Harga Pokok Penjualan sehingga yang tersisa hanya sebesar " + nilaiGpm + "% yang digunakan untuk menutup biaya operasional dan biaya lain. Jika biaya-biaya tersebut tidak melebihi " + nilaiGpm + "% maka perusahaan masih mendapatkan laba. Namun, jika biaya-biaya tersebut lebih besar dari " + nilaiGpm + "% maka perusahaan tidak mendapatkan laba sehingga perlu adanya penelusuran tentang adanya kemungkinan terdapat ketidakefisienan dalam hal biaya-biaya khususnya biaya yang berhubungan dengan Harga Pokok Penjualan.");
         tvdaIsiNpm.setText("Angka " + nilaiNpm + "% berarti bahwa dari total penjualan bersih yang didapatkan, sebesar " + (100-nilaiNpm) + "% digunakan untuk menutup semua biaya seperti Harga Pokok Penjualan, Biaya Operasional (Gaji, Sewa, Pemasaran, dll), dan termasuk pajak yang dibayarkan");
         tvdaIsiRoa.setText("Angka " + nilaiRoa + "% berarti bahwa perusahaan mampu menghasilkan laba sebesar " + nilaiRoa +"% dari total aset yang digunakan untuk menghasilkan laba tersebut.");
-        tvdaIsiRoe.setText("Angka " + nilaiRoe +"% berarti bahwa perusahaan mampu memberikan imbal hasil usaha untuk setiap Rp 1 yang diinvestasikan di perusahaan, pemilik mendapatkan tambahan nilai ekuitas Rp" + (df.format(Double.valueOf(nilaiRoe)/100)) + ". Dengan kata lain, dari total investasi yang dilakukan di perusahaan, pemilik atau investor mendapatkan kenaikan nilai ekuitas sebesar " + nilaiRoe + "%. ");
+        tvdaIsiRoe.setText("Angka " + nilaiRoe + "% berarti bahwa perusahaan mampu memberikan imbal hasil usaha untuk setiap Rp 1 yang diinvestasikan di perusahaan, pemilik mendapatkan tambahan nilai ekuitas Rp" + (df.format(Double.valueOf(nilaiRoe)/100)) + ". Dengan kata lain, dari total investasi yang dilakukan di perusahaan, pemilik atau investor mendapatkan kenaikan nilai ekuitas sebesar " + nilaiRoe + "%. ");
 
     }
 
     private int getNilaiRoe() {
+
+        nilaiRoe = 0;
+
+
+
         return 30;
     }
 
@@ -189,12 +205,96 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
     }
 
     private int getNilaiNpm() {
-        return 22;
+
+        nilaiNpm = 0;
+
+        int lababersih = pendapatanOp + pendapatanNonOp - bebanOp - bebanNonOp;
+        int pajak = lababersih*1/100;
+        int labaBersihSetelahPajak = lababersih - pajak;
+        int penjualan = pendapatanOp + pendapatanNonOp;
+
+        nilaiNpm = labaBersihSetelahPajak / penjualan;
+
+        return nilaiNpm;
     }
 
     private int getNilaiGpm() {
 
-//        hanya untuk tampilan dulu
-        return 41;
+        nilaiGpm = 0;
+
+//                pengambilan data untuk pendapatan (pendapatan operasional)
+        ArrayList<DataSaldo> dataSaldos = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(5, bulanDipilih, tahunDipilih);
+        DataSaldo dataSaldo;
+
+        pendapatanOp = 0;
+
+        for (int i = 0; i< dataSaldos.size(); i++){
+            dataSaldo = dataSaldos.get(i);
+
+            String kodeAkun = dataSaldo.getKodeAkun();
+            String namaAkun = dataSaldo.getNamaAkun();
+            String nominal = String.valueOf(dataSaldo.getNominal());
+
+            pendapatanOp += dataSaldo.getNominal();
+        }
+
+//                pengambilan data untuk pendapatan luar usaha (pendapatan non operasional)
+        ArrayList<DataSaldo> dataSaldos2 = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(6, bulanDipilih, tahunDipilih);
+        DataSaldo dataSaldo2;
+
+        pendapatanNonOp = 0;
+
+        for (int i = 0; i< dataSaldos2.size(); i++){
+            dataSaldo2 = dataSaldos2.get(i);
+
+            String kodeAkun = dataSaldo2.getKodeAkun();
+            String namaAkun = dataSaldo2.getNamaAkun();
+            int nominal = (int)dataSaldo2.getNominal();
+
+            pendapatanNonOp += dataSaldo2.getNominal();
+
+        }
+
+//                pengambilan data untuk beban biaya operasional
+
+        ArrayList<DataSaldo> dataSaldos1 = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(7, bulanDipilih, tahunDipilih);
+        DataSaldo dataSaldo1;
+
+        bebanOp = 0;
+
+        for (int i = 0; i< dataSaldos1.size(); i++){
+            dataSaldo1 = dataSaldos1.get(i);
+
+            String kodeAkun = dataSaldo1.getKodeAkun();
+            String namaAkun = dataSaldo1.getNamaAkun();
+            String nominal = String.valueOf(dataSaldo1.getNominal());
+
+            bebanOp += dataSaldo1.getNominal();
+
+        }
+
+//                pengambilan data untuk biaya luar usaha
+        ArrayList<DataSaldo> dataSaldos3 = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(8, bulanDipilih, tahunDipilih);
+        DataSaldo dataSaldo3;
+
+        bebanNonOp = 0;
+
+        for (int i = 0; i< dataSaldos3.size(); i++){
+            dataSaldo3 = dataSaldos3.get(i);
+
+            String kodeAkun = dataSaldo3.getKodeAkun();
+            String namaAkun = dataSaldo3.getNamaAkun();
+            String nominal = String.valueOf(dataSaldo3.getNominal());
+
+            bebanNonOp += dataSaldo3.getNominal();
+
+        }
+
+        int pendapatan = pendapatanOp + pendapatanNonOp;
+        int laba = pendapatanOp + pendapatanNonOp - bebanOp - bebanNonOp;
+
+        nilaiGpm = laba / pendapatan;
+
+        return nilaiGpm;
     }
 }
