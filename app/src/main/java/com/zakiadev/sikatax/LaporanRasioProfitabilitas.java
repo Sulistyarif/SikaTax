@@ -33,7 +33,7 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
     int bulanDipilih, tahunDipilih;
     String strBulan, strTahun;
     int nilaiGpm, nilaiNpm, nilaiRoa, nilaiRoe;
-    int pendapatanOp, pendapatanNonOp, bebanOp, bebanNonOp;
+    int pendapatanOp, pendapatanNonOp, bebanOp, bebanNonOp, totalAset, ekuitas;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -116,6 +116,12 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         pendapatanNonOp = 0;
         bebanOp = 0;
         bebanNonOp = 0;
+        totalAset = 0;
+        ekuitas = 0;
+
+        getLaporanLabaRugi();
+        getLaporanNeraca();
+
 
 //        di dalam getNilaiGpm terdapat method memasukkan nilai pendapatan dan beban
         nilaiGpm = getNilaiGpm();
@@ -137,6 +143,124 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
 
     }
 
+    private void getLaporanNeraca() {
+
+//        pada method ini akan didapatkan nilai totalAset, dan juga nilai ekuitas
+
+//                pengambilan data untuk aktiva lancar
+        ArrayList<DataSaldo> dataSaldos = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMar(0, bulanDipilih, tahunDipilih);
+        DataSaldo dataSaldo;
+
+        int aktivaLancar = 0;
+
+        for (int i = 0; i< dataSaldos.size(); i++){
+            dataSaldo = dataSaldos.get(i);
+
+            aktivaLancar += dataSaldo.getNominal();
+
+        }
+
+//                pengambilan data untuk aktiva tetap
+        ArrayList<DataSaldo> dataSaldos1 = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMar(1, bulanDipilih, tahunDipilih);
+        DataSaldo dataSaldo1;
+
+        int aktivaTetap = 0;
+
+        for (int i = 0; i< dataSaldos1.size(); i++){
+            dataSaldo1 = dataSaldos1.get(i);
+
+            aktivaTetap += dataSaldo1.getNominal();
+
+        }
+
+//                total aset tetap merupakan aset tetap yang dikurangi dengan penyusutan bulan ini
+        ArrayList<DataSaldo> dataSaldosPeny = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMar(10, bulanDipilih, tahunDipilih);
+
+        for (int i = 0; i< dataSaldosPeny.size(); i++){
+            dataSaldo1 = dataSaldosPeny.get(i);
+
+            aktivaTetap -= dataSaldo1.getNominal();
+
+        }
+
+        totalAset = aktivaLancar + aktivaTetap;
+
+//                menghitung total laba tanggal tersebut (nggak tau ini, apakah emang laba itu dimasukkan ke dalam modal pemilik atau gimana)
+        ArrayList<DataSaldo> dataSaldos4 = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectModalNeracaMar(bulanDipilih,tahunDipilih);
+        DataSaldo dataSaldo4;
+
+        int modalPemilik = 0;
+
+        for (int i = 0; i< dataSaldos4.size(); i++){
+            dataSaldo4 = dataSaldos4.get(i);
+
+            modalPemilik += dataSaldo4.getNominal();
+
+        }
+
+        ekuitas = modalPemilik;
+
+    }
+
+    private void getLaporanLabaRugi() {
+
+//        pada method ini akan didapatkan nilai pendapatanOp, pendapatanNonOp, bebanOp, bebanNonOp
+
+//                pengambilan data untuk pendapatan (pendapatan operasional)
+        ArrayList<DataSaldo> dataSaldos = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(5, bulanDipilih, tahunDipilih);
+        DataSaldo dataSaldo;
+
+        pendapatanOp = 0;
+
+        for (int i = 0; i< dataSaldos.size(); i++){
+            dataSaldo = dataSaldos.get(i);
+
+            pendapatanOp += dataSaldo.getNominal();
+
+        }
+
+//                pengambilan data untuk pendapatan luar usaha (pendapatan non operasional)
+        ArrayList<DataSaldo> dataSaldos2 = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(6, bulanDipilih, tahunDipilih);
+        DataSaldo dataSaldo2;
+
+        pendapatanNonOp = 0;
+
+        for (int i = 0; i< dataSaldos2.size(); i++){
+            dataSaldo2 = dataSaldos2.get(i);
+
+            pendapatanNonOp += dataSaldo2.getNominal();
+
+        }
+
+//                pengambilan data untuk beban biaya operasional
+
+        ArrayList<DataSaldo> dataSaldos1 = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(7, bulanDipilih, tahunDipilih);
+        DataSaldo dataSaldo1;
+
+        bebanOp = 0;
+
+        for (int i = 0; i< dataSaldos1.size(); i++){
+            dataSaldo1 = dataSaldos1.get(i);
+
+            bebanOp += dataSaldo1.getNominal();
+
+        }
+
+//                pengambilan data untuk biaya luar usaha
+        ArrayList<DataSaldo> dataSaldos3 = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(8, bulanDipilih, tahunDipilih);
+        DataSaldo dataSaldo3;
+
+        bebanNonOp = 0;
+
+        for (int i = 0; i< dataSaldos3.size(); i++){
+            dataSaldo3 = dataSaldos3.get(i);
+
+            bebanNonOp += dataSaldo3.getNominal();
+
+        }
+
+    }
+
     private void showDetailAnalisis() {
         final Dialog dialog = new Dialog(this);
         dialog.setCancelable(true);
@@ -150,8 +274,6 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         Window window = dialog.getWindow();
         assert window != null;
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-//        window.setBackgroundDrawableResource(R.drawable.rounded_background);
-//        window.setBackgroundDrawableResource(R.drawable.cell_shape);
         WindowManager.LayoutParams layoutParams = window.getAttributes();
         layoutParams.y = -50;
         layoutParams.x = 120;
@@ -180,9 +302,9 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         tvdaIsiRoe = dialog.findViewById(R.id.tvdaIsiRoe);
 
         tvdaGpm.setText("Gross Profit Margin = " + nilaiGpm + "%");
-        tvdaNpm.setText("Gross Profit Margin = " + nilaiNpm + "%");
-        tvdaRoa.setText("Gross Profit Margin = " + nilaiRoa + "%");
-        tvdaRoe.setText("Gross Profit Margin = " + nilaiRoe + "%");
+        tvdaNpm.setText("Nett Profit Margin = " + nilaiNpm + "%");
+        tvdaRoa.setText("Return of Assets = " + nilaiRoa + "%");
+        tvdaRoe.setText("Return of Equity = " + nilaiRoe + "%");
 
         tvdaIsiGpm.setText("Angka " + nilaiGpm + "% berarti bahwa dari total penjualan bersih yang didapatkan, sebesar " + (100-nilaiGpm) + "% digunakan hanya untuk menutup Harga Pokok Penjualan sehingga yang tersisa hanya sebesar " + nilaiGpm + "% yang digunakan untuk menutup biaya operasional dan biaya lain. Jika biaya-biaya tersebut tidak melebihi " + nilaiGpm + "% maka perusahaan masih mendapatkan laba. Namun, jika biaya-biaya tersebut lebih besar dari " + nilaiGpm + "% maka perusahaan tidak mendapatkan laba sehingga perlu adanya penelusuran tentang adanya kemungkinan terdapat ketidakefisienan dalam hal biaya-biaya khususnya biaya yang berhubungan dengan Harga Pokok Penjualan.");
         tvdaIsiNpm.setText("Angka " + nilaiNpm + "% berarti bahwa dari total penjualan bersih yang didapatkan, sebesar " + (100-nilaiNpm) + "% digunakan untuk menutup semua biaya seperti Harga Pokok Penjualan, Biaya Operasional (Gaji, Sewa, Pemasaran, dll), dan termasuk pajak yang dibayarkan");
@@ -195,13 +317,20 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
 
         nilaiRoe = 0;
 
+        int lababersih = pendapatanOp + pendapatanNonOp - bebanOp - bebanNonOp;
+        nilaiRoe = lababersih / ekuitas;
 
-
-        return 30;
+        return nilaiRoe;
     }
 
     private int getNilaiRoa() {
-        return 15;
+
+        nilaiRoa = 0;
+
+        int lababersih = pendapatanOp + pendapatanNonOp - bebanOp - bebanNonOp;
+        nilaiRoa = lababersih / totalAset;
+
+        return nilaiRoa;
     }
 
     private int getNilaiNpm() {
@@ -221,74 +350,6 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
     private int getNilaiGpm() {
 
         nilaiGpm = 0;
-
-//                pengambilan data untuk pendapatan (pendapatan operasional)
-        ArrayList<DataSaldo> dataSaldos = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(5, bulanDipilih, tahunDipilih);
-        DataSaldo dataSaldo;
-
-        pendapatanOp = 0;
-
-        for (int i = 0; i< dataSaldos.size(); i++){
-            dataSaldo = dataSaldos.get(i);
-
-            String kodeAkun = dataSaldo.getKodeAkun();
-            String namaAkun = dataSaldo.getNamaAkun();
-            String nominal = String.valueOf(dataSaldo.getNominal());
-
-            pendapatanOp += dataSaldo.getNominal();
-        }
-
-//                pengambilan data untuk pendapatan luar usaha (pendapatan non operasional)
-        ArrayList<DataSaldo> dataSaldos2 = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(6, bulanDipilih, tahunDipilih);
-        DataSaldo dataSaldo2;
-
-        pendapatanNonOp = 0;
-
-        for (int i = 0; i< dataSaldos2.size(); i++){
-            dataSaldo2 = dataSaldos2.get(i);
-
-            String kodeAkun = dataSaldo2.getKodeAkun();
-            String namaAkun = dataSaldo2.getNamaAkun();
-            int nominal = (int)dataSaldo2.getNominal();
-
-            pendapatanNonOp += dataSaldo2.getNominal();
-
-        }
-
-//                pengambilan data untuk beban biaya operasional
-
-        ArrayList<DataSaldo> dataSaldos1 = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(7, bulanDipilih, tahunDipilih);
-        DataSaldo dataSaldo1;
-
-        bebanOp = 0;
-
-        for (int i = 0; i< dataSaldos1.size(); i++){
-            dataSaldo1 = dataSaldos1.get(i);
-
-            String kodeAkun = dataSaldo1.getKodeAkun();
-            String namaAkun = dataSaldo1.getNamaAkun();
-            String nominal = String.valueOf(dataSaldo1.getNominal());
-
-            bebanOp += dataSaldo1.getNominal();
-
-        }
-
-//                pengambilan data untuk biaya luar usaha
-        ArrayList<DataSaldo> dataSaldos3 = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(8, bulanDipilih, tahunDipilih);
-        DataSaldo dataSaldo3;
-
-        bebanNonOp = 0;
-
-        for (int i = 0; i< dataSaldos3.size(); i++){
-            dataSaldo3 = dataSaldos3.get(i);
-
-            String kodeAkun = dataSaldo3.getKodeAkun();
-            String namaAkun = dataSaldo3.getNamaAkun();
-            String nominal = String.valueOf(dataSaldo3.getNominal());
-
-            bebanNonOp += dataSaldo3.getNominal();
-
-        }
 
         int pendapatan = pendapatanOp + pendapatanNonOp;
         int laba = pendapatanOp + pendapatanNonOp - bebanOp - bebanNonOp;

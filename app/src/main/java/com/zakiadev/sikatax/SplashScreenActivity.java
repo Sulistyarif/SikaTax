@@ -87,11 +87,13 @@ public class SplashScreenActivity extends AppCompatActivity{
                 {"1103", "Piutang Usaha"},
                 {"1104", "Piutang Sewa"},
                 {"1105", "Sewa Dibayar Dimuka"},
-                {"1106", "Asuransi Dibayar Dimuka"},
-                {"1107", "Iklan Dibayar Dimuka"},
-                {"1108", "Listrik Dibayar Dimuka"},
-                {"1109", "Perlengkapan"},
-                {"1110", "Alat Tulis Kantor"}
+                {"1106", "Gaji Dibayar Dimuka"},
+                {"1107", "Asuransi Dibayar Dimuka"},
+                {"1108", "Iklan Dibayar Dimuka"},
+                {"1109", "Telepon Dibayar Dimuka"},
+                {"1110", "Listrik Dibayar Dimuka"},
+                {"1111", "Perlengkapan"},
+                {"1112", "Alat Tulis Kantor"}
         };
 
         String[][] assetTetap ={

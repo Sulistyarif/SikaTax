@@ -384,6 +384,7 @@ public class DBAdapterMix extends SQLiteOpenHelper {
 
 //    {DIGUNAKAN}
 //    digunakn untuk laporan labarugi
+//    digunakan untuk menampilkan daftar akun yang mempunyai nilai(muncul dalam transaksi) di bulan ini, sort by jenis akun
     public ArrayList<DataSaldo> selectRiwayatJenisBlnThnMar(int i, int bulanDipilih, int tahunDipilih) {
         ArrayList<DataSaldo> dataSaldos = new ArrayList<DataSaldo>();
         String bulan = String.format("%02d", bulanDipilih);
@@ -2722,5 +2723,37 @@ public class DBAdapterMix extends SQLiteOpenHelper {
             }
         }
         return dataSaldos;
+    }
+
+//    digunakan untuk mengambil nilai persekot yang dibutuhkan pada rasio likuiditas QR
+    public int selectNilaiPersekot(int bulanDipilih, int tahunDipilih) {
+        String bulan = String.format("%02d", bulanDipilih);
+        String bulanDepan = String.format("%02d", bulanDipilih + 1);
+        String tahun = String.valueOf(tahunDipilih);
+
+        int nilaiPersekot = 0;
+
+        SQLiteDatabase db;
+
+//        mengambil data  persekot
+        String querySelectPersekot = "SELECT trans.kode_akun, trans.nominal, jurnal.tgl\n" +
+                "FROM trans\n" +
+                "INNER JOIN jurnal ON jurnal.pid = trans.pid\n" +
+                "INNER JOIN akun ON trans.kode_akun = akun.kode_akun\n" +
+                "WHERE strftime('%m',jurnal.tgl) = '" + bulan + "' \n" +
+                "AND strftime('%Y',jurnal.tgl) = '" + tahun + "' \n" +
+                "AND (akun.kode_akun = '1105' OR akun.kode_akun = '1106' OR akun.kode_akun = '1107' OR akun.kode_akun = '1108' OR akun.kode_akun = '1109' OR akun.kode_akun = '1110');";
+        db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(querySelectPersekot, null);
+
+        if (cursor != null){
+            while (cursor.moveToNext()){
+                int nominal = cursor.getInt(1);
+                nilaiPersekot += nominal;
+            }
+        }
+        db.close();
+
+        return nilaiPersekot;
     }
 }

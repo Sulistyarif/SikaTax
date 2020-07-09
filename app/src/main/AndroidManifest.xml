@@ -49,6 +49,7 @@
         <activity android:name=".SubMenuPajakUMKM"/>
         <activity android:name=".LaporanPajakUMKM"/>
         <activity android:name=".LaporanRasioProfitabilitas"/>
+        <activity android:name=".LaporanRasioLikuiditas"/>
 
     </application>
 

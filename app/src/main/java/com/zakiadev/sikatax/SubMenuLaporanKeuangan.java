@@ -40,7 +40,8 @@ public class SubMenuLaporanKeuangan extends AppCompatActivity {
                     Intent intent = new Intent(SubMenuLaporanKeuangan.this, LaporanRasioProfitabilitas.class);
                     startActivity(intent);
                 }else {
-//                    rasio likuiditas
+                    Intent intent = new Intent(SubMenuLaporanKeuangan.this, LaporanRasioLikuiditas.class);
+                    startActivity(intent);
                 }
             }
         });
