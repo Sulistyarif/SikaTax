@@ -157,10 +157,6 @@ public class LaporanPajakUMKM extends AppCompatActivity {
         for (int i = 0; i< dataSaldos.size(); i++){
             dataSaldo = dataSaldos.get(i);
 
-            String kodeAkun = dataSaldo.getKodeAkun();
-            String namaAkun = dataSaldo.getNamaAkun();
-            String nominal = String.valueOf(dataSaldo.getNominal());
-
             pendapatanOp += dataSaldo.getNominal();
         }
 
@@ -172,10 +168,6 @@ public class LaporanPajakUMKM extends AppCompatActivity {
 
         for (int i = 0; i< dataSaldos2.size(); i++){
             dataSaldo2 = dataSaldos2.get(i);
-
-            String kodeAkun = dataSaldo2.getKodeAkun();
-            String namaAkun = dataSaldo2.getNamaAkun();
-            int nominal = (int)dataSaldo2.getNominal();
 
             pendapatanNonOp += dataSaldo2.getNominal();
 

@@ -89,7 +89,7 @@ public class PilihKreditActivity extends AppCompatActivity {
                 break;
             }
             case 7:{
-                tableView.setDataAdapter(new SimpleTableDataAdapter(this, tableHelperDataAkun.getDataPil(0,1,5,6)));
+                tableView.setDataAdapter(new SimpleTableDataAdapter(this, tableHelperDataAkun.getDataPil(0,1, 4,5,6, 9)));
                 break;
             }
             case 8:{
