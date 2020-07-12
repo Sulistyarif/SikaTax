@@ -34,11 +34,14 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
     String strBulan, strTahun;
     int nilaiGpm, nilaiNpm, nilaiRoa, nilaiRoe;
     int pendapatanOp, pendapatanNonOp, bebanOp, bebanNonOp, totalAset, ekuitas;
+    DecimalFormat df;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.laporan_rasio_profitabilitas_activity);
+
+        df = new DecimalFormat("#0.00");
 
         settingDateSpinner();
         tampilkanRasioProfitabilitas();
@@ -60,6 +63,22 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         spBulan.setSelection(currentDate.getMonth());
         bulanDipilih = currentDate.getMonth();
 
+//        setting spinner tahun
+        int c = 1990;
+        for (int i=0; i<listTahun.length; i++){
+            listTahun[i] = String.valueOf(c);
+            c++;
+        }
+
+        final ArrayAdapter<String> adapterSpinnerYear = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, listTahun);
+        spTahun.setAdapter(adapterSpinnerYear);
+        spTahun.setSelection(currentDate.getYear()-90);
+        tahunDipilih = currentDate.getYear()-90;
+
+//        penormalan bulan dan tahun
+        bulanDipilih = bulanDipilih+1;
+        tahunDipilih = tahunDipilih+1990;
+
 //        ketika spinner bulan diganti
         spBulan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -76,17 +95,6 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
             }
         });
 
-//        setting spinner tahun
-        int c = 1990;
-        for (int i=0; i<listTahun.length; i++){
-            listTahun[i] = String.valueOf(c);
-            c++;
-        }
-
-        final ArrayAdapter<String> adapterSpinnerYear = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, listTahun);
-        spTahun.setAdapter(adapterSpinnerYear);
-        spTahun.setSelection(currentDate.getYear()-90);
-        tahunDipilih = currentDate.getYear()-90;
 //        ketika spinner tahun diganti
         spTahun.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -122,6 +130,7 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         getLaporanLabaRugi();
         getLaporanNeraca();
 
+        Log.i("nilaiGpm", "nilai: " + pendapatanOp + " | " + pendapatanNonOp + " | " + bebanOp + " | " + bebanNonOp + " | " + totalAset + " | " + ekuitas );
 
 //        di dalam getNilaiGpm terdapat method memasukkan nilai pendapatan dan beban
         nilaiGpm = getNilaiGpm();
@@ -210,6 +219,8 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         ArrayList<DataSaldo> dataSaldos = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(5, bulanDipilih, tahunDipilih);
         DataSaldo dataSaldo;
 
+        Log.i("nilaiGpm", "bulan: " + bulanDipilih + " " + tahunDipilih);
+
         pendapatanOp = 0;
 
         for (int i = 0; i< dataSaldos.size(); i++){
@@ -237,7 +248,7 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         ArrayList<DataSaldo> dataSaldos1 = new DBAdapterMix(LaporanRasioProfitabilitas.this).selectRiwayatJenisBlnThnMarLabaRugi(7, bulanDipilih, tahunDipilih);
         DataSaldo dataSaldo1;
 
-        bebanOp = 0;
+        bebanOp = 2;
 
         for (int i = 0; i< dataSaldos1.size(); i++){
             dataSaldo1 = dataSaldos1.get(i);
@@ -289,8 +300,6 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
             }
         });
 
-        DecimalFormat df = new DecimalFormat("#0.00");
-
         tvdaGpm = dialog.findViewById(R.id.tvdaGpm);
         tvdaNpm = dialog.findViewById(R.id.tvdaNpm);
         tvdaRoa = dialog.findViewById(R.id.tvdaRoa);
@@ -318,7 +327,9 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         nilaiRoe = 0;
 
         int lababersih = pendapatanOp + pendapatanNonOp - bebanOp - bebanNonOp;
-        nilaiRoe = lababersih / ekuitas;
+
+        double hasilDouble = ((double)lababersih / (double)ekuitas)*100.00;
+        nilaiRoe = (int)hasilDouble;
 
         return nilaiRoe;
     }
@@ -328,7 +339,9 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         nilaiRoa = 0;
 
         int lababersih = pendapatanOp + pendapatanNonOp - bebanOp - bebanNonOp;
-        nilaiRoa = lababersih / totalAset;
+
+        double hasilDouble = ((double)lababersih / (double)totalAset)*100.00;
+        nilaiRoa = (int)hasilDouble;
 
         return nilaiRoa;
     }
@@ -342,7 +355,9 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         int labaBersihSetelahPajak = lababersih - pajak;
         int penjualan = pendapatanOp + pendapatanNonOp;
 
-        nilaiNpm = labaBersihSetelahPajak / penjualan;
+        double hasilDouble = ((double)labaBersihSetelahPajak / (double)penjualan)*100.00;
+
+        nilaiNpm = (int)hasilDouble;
 
         return nilaiNpm;
     }
@@ -354,7 +369,8 @@ public class LaporanRasioProfitabilitas extends AppCompatActivity {
         int pendapatan = pendapatanOp + pendapatanNonOp;
         int laba = pendapatanOp + pendapatanNonOp - bebanOp - bebanNonOp;
 
-        nilaiGpm = laba / pendapatan;
+        double hasilDoub = ((double) laba / (double) pendapatan)*100.00;
+        nilaiGpm = (int)hasilDoub;
 
         return nilaiGpm;
     }

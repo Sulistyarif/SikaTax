@@ -104,7 +104,6 @@ public class LaporanNeracaActivity extends AppCompatActivity {
             }
         });
 
-
 //        setting webview
         webView.loadUrl("file:///android_asset/neraca.html");
         webView.getSettings().setJavaScriptEnabled(true);
@@ -136,6 +135,8 @@ public class LaporanNeracaActivity extends AppCompatActivity {
 //                pengambilan data untuk aktiva lancar
                     ArrayList<DataSaldo> dataSaldos = new DBAdapterMix(LaporanNeracaActivity.this).selectRiwayatJenisBlnThnMar(0, bulanDipilih, tahunDipilih);
                     DataSaldo dataSaldo;
+
+                Log.i("nilaiGpm", "bulan neraca: " + bulanDipilih + " " + tahunDipilih);
 
                     for (int i = 0; i< dataSaldos.size(); i++){
                         dataSaldo = dataSaldos.get(i);

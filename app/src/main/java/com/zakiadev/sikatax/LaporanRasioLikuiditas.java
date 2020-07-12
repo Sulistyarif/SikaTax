@@ -63,6 +63,22 @@ public class LaporanRasioLikuiditas extends AppCompatActivity {
         spBulan.setSelection(currentDate.getMonth());
         bulanDipilih = currentDate.getMonth();
 
+//        setting spinner tahun
+        int c = 1990;
+        for (int i=0; i<listTahun.length; i++){
+            listTahun[i] = String.valueOf(c);
+            c++;
+        }
+
+        final ArrayAdapter<String> adapterSpinnerYear = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, listTahun);
+        spTahun.setAdapter(adapterSpinnerYear);
+        spTahun.setSelection(currentDate.getYear()-90);
+        tahunDipilih = currentDate.getYear()-90;
+
+//        penormalan bulan dan tahun
+        bulanDipilih = bulanDipilih+1;
+        tahunDipilih = tahunDipilih+1990;
+
 //        ketika spinner bulan diganti
         spBulan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -79,17 +95,6 @@ public class LaporanRasioLikuiditas extends AppCompatActivity {
             }
         });
 
-//        setting spinner tahun
-        int c = 1990;
-        for (int i=0; i<listTahun.length; i++){
-            listTahun[i] = String.valueOf(c);
-            c++;
-        }
-
-        final ArrayAdapter<String> adapterSpinnerYear = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, listTahun);
-        spTahun.setAdapter(adapterSpinnerYear);
-        spTahun.setSelection(currentDate.getYear()-90);
-        tahunDipilih = currentDate.getYear()-90;
 //        ketika spinner tahun diganti
         spTahun.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
