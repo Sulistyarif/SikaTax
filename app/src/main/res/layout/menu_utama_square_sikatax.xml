@@ -30,112 +30,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNamaPerusahaanSquare" />
 
-    <TextView
-        android:id="@+id/tvMenut1"
-        android:background="@drawable/rounded_background_accent_agung"
-        android:layout_margin="25dp"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMenu"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:drawableTop="@drawable/menut1"
-        android:text="@string/menu1"
-        android:gravity="center_vertical"
-        android:textColor="#111"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/tvMenut3"
-        app:layout_constraintEnd_toStartOf="@+id/tvMenut2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAlamatPerusahaanSquare" />
-
-    <TextView
-        android:id="@+id/tvMenut3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:drawableTop="@drawable/menut3"
-        android:text="@string/menu3"
-        android:textColor="#111"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvMenut5"
-        app:layout_constraintEnd_toStartOf="@+id/tvMenut4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMenut1" />
-
-    <TextView
-        android:id="@+id/tvMenut4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:drawableTop="@drawable/menut4"
-        android:text="@string/menu4"
-        android:textColor="#111"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvMenut6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvMenut3"
-        app:layout_constraintTop_toBottomOf="@+id/tvMenut2" />
-
-    <TextView
-        android:id="@+id/tvMenut5"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:drawableTop="@drawable/menut5"
-        android:text="@string/menu5"
-        android:textColor="#111"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvMenut7"
-        app:layout_constraintEnd_toStartOf="@+id/tvMenut6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMenut3" />
-
-    <TextView
-        android:id="@+id/tvMenut6"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:drawableTop="@drawable/menut6"
-        android:text="@string/menu6"
-        android:textColor="#111"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvMenut8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvMenut5"
-        app:layout_constraintTop_toBottomOf="@+id/tvMenut4" />
-
-    <TextView
-        android:id="@+id/tvMenut7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:drawableTop="@drawable/menut7"
-        android:text="@string/menu7"
-        android:textColor="#111"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvMenut8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMenut5" />
-
-    <TextView
-        android:id="@+id/tvMenut8"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:drawableTop="@drawable/menut8"
-        android:text="@string/menu8"
-        android:textColor="#111"
-        android:textSize="20sp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvMenut7"
-        app:layout_constraintTop_toBottomOf="@+id/tvMenut6" />
-
-    <TextView
-        android:id="@+id/tvMenut2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:drawableTop="@drawable/menut2"
-        android:text="@string/menu2"
-        android:textColor="#111"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvMenut4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvMenut1"
-        app:layout_constraintTop_toBottomOf="@+id/tvAlamatPerusahaanSquare" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAlamatPerusahaanSquare"
+        tools:listitem="@layout/item_menu" />
 
 </android.support.constraint.ConstraintLayout>
