@@ -38,7 +38,7 @@ public class JurnalKecActivity extends AppCompatActivity {
         tableHelperDataJurnalKec = new TableHelperDataJurnalKec(this);
         tableView = (TableView<String[]>)findViewById(R.id.tvKecJurnal);
 //        tableView.setColumnCount(2);
-        tableView.setHeaderBackgroundColor(Color.parseColor("#3498db"));
+        tableView.setHeaderBackgroundColor(Color.parseColor("#c199d1"));
 //        tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this,tableHelperDataJurnalKec.getColHeader()));
 
         SimpleTableHeaderAdapter simpleTableHeaderAdapter = new SimpleTableHeaderAdapter(this, tableHelperDataJurnalKec.getColHeader());

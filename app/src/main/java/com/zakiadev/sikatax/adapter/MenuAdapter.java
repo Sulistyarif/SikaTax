@@ -1,5 +1,6 @@
 package com.zakiadev.sikatax.adapter;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -46,6 +47,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuHolder> {
         MenuHolder(View itemView) {
             super(itemView);
             menu = itemView.findViewById(R.id.tvNama);
+            menu.setTextColor(Color.BLACK);
         }
 
         void bind(final Menu item) {

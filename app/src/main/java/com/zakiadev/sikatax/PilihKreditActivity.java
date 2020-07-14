@@ -51,7 +51,7 @@ public class PilihKreditActivity extends AppCompatActivity {
         tableHelperDataAkun = new TableHelperDataAkun(this);
         tableView = (TableView<String[]>)findViewById(R.id.tvKecJurnal);
 //        tableView.setColumnCount(2);
-        tableView.setHeaderBackgroundColor(Color.parseColor("#3498db"));
+        tableView.setHeaderBackgroundColor(Color.parseColor("#c199d1"));
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, tableHelperDataAkun.getColHeader()));
 
 //        TableColumnDpWidthModel columnModel = new TableColumnDpWidthModel(PilihKreditActivity.this, 2, 200);

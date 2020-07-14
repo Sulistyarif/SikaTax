@@ -55,7 +55,7 @@ public class DaftarAkunActivity extends AppCompatActivity {
         tableHelperDataAkun = new TableHelperDataAkun(this);
         tableView = (TableView<String[]>)findViewById(R.id.tvKecJurnal);
 //        tableView.setColumnCount(4);
-        tableView.setHeaderBackgroundColor(Color.parseColor("#3498db"));
+        tableView.setHeaderBackgroundColor(Color.parseColor("#c199d1"));
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, tableHelperDataAkun.getColHeader()));
         if (jenisAkun == 11){
             tableView.setDataAdapter(new SimpleTableDataAdapter(this, tableHelperDataAkun.getDataAll()));
