@@ -29,12 +29,13 @@ public class MenuUtamaActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu_utama_square);
+//        setContentView(R.layout.menu_utama_square);
+        setContentView(R.layout.menu_utama_square_sikatax);
 
         tvNamaPerusahaan = (TextView)findViewById(R.id.tvNamaPerusahaanSquare);
         tvAlamatPerusahaan = (TextView)findViewById(R.id.tvAlamatPerusahaanSquare);
 
-        menu1 = (LinearLayout)findViewById(R.id.llmenu1);
+        /*menu1 = (LinearLayout)findViewById(R.id.llmenu1);
         menu2 = (LinearLayout)findViewById(R.id.llmenu2);
         menu3 = (LinearLayout)findViewById(R.id.llmenu3);
         menu4 = (LinearLayout)findViewById(R.id.llmenu4);
@@ -50,9 +51,9 @@ public class MenuUtamaActivity extends AppCompatActivity implements View.OnClick
         menu5.setOnClickListener(this);
         menu6.setOnClickListener(this);
         menu7.setOnClickListener(this);
-        menu8.setOnClickListener(this);
+        menu8.setOnClickListener(this);*/
 
-        showInfoNeracaAwal();
+//        showInfoNeracaAwal();
 
     }
 
@@ -80,14 +81,14 @@ public class MenuUtamaActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onResume() {
         super.onResume();
-        DataPerusahaan dataPerusahaan = new DBAdapterMix(MenuUtamaActivity.this).selectDataPerusahaan();
+        /*DataPerusahaan dataPerusahaan = new DBAdapterMix(MenuUtamaActivity.this).selectDataPerusahaan();
         tvNamaPerusahaan.setText(dataPerusahaan.getNamaPers());
-        tvAlamatPerusahaan.setText(dataPerusahaan.getAlamat());
+        tvAlamatPerusahaan.setText(dataPerusahaan.getAlamat());*/
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        /*switch (view.getId()){
             case R.id.llmenu1:{
                 // menu petunjuk
                 Intent intent = new Intent(MenuUtamaActivity.this, PetunjukActivity.class);
@@ -136,6 +137,6 @@ public class MenuUtamaActivity extends AppCompatActivity implements View.OnClick
                 startActivity(intent);
                 break;
             }
-        }
+        }*/
     }
 }
