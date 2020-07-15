@@ -221,7 +221,8 @@ public class LaporanRasioLikuiditas extends AppCompatActivity {
     private double getNilaiQr() {
 
         nilaiQr = 0;
-        nilaiQr = (asetLancar - nilaiPersekot ) / utangLancar;
+        nilaiQr = ((double) asetLancar - (double) nilaiPersekot ) / (double) utangLancar;
+        Log.i("nilaiLikuiditas", "Nilai aset lancar: " + asetLancar + "; nilai persekot: " + nilaiPersekot + "; nilai utang lancar:" + utangLancar);
 
         return nilaiQr;
     }
@@ -229,7 +230,7 @@ public class LaporanRasioLikuiditas extends AppCompatActivity {
     private double getNilaiCr() {
 
         nilaiCr = 0;
-        nilaiCr = asetLancar / utangLancar;
+        nilaiCr = (double) asetLancar / (double) utangLancar;
 
         return nilaiCr;
     }

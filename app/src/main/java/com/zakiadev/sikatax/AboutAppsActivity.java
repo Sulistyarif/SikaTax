@@ -18,7 +18,8 @@ public class AboutAppsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.about_apps_activity);
+//        setContentView(R.layout.about_apps_activity);
+        setContentView(R.layout.about_developer_sikatax);
 
         aboutDev = (Button)findViewById(R.id.aboutDev);
         aboutDev.setOnClickListener(new View.OnClickListener() {

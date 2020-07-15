@@ -24,10 +24,11 @@
                     android:id="@+id/textView14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="About Developer"
+                    android:text="About App"
                     android:textAlignment="center"
                     android:textColor="#111"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:id="@+id/ll2"
@@ -43,15 +44,15 @@
                         android:layout_height="wrap_content"
                         android:text="Aplikasi ini Menggunakan Library :"
                         android:textColor="#111"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
 
                     <TextView
                         android:id="@+id/textView23"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="com.karumi:dexter:4.2.0
-        de.codecrafters.tableview:tableview:2.8.0"
+                        android:text="@string/library_digunakan"
                         android:textColor="#111"
                         android:textSize="18sp" />
 
@@ -62,13 +63,14 @@
                         android:layout_marginTop="20dp"
                         android:text="Icon Pada Aplikasi ini diambil dari:"
                         android:textColor="#111"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textView30"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="flaticon.com"
+                        android:text="@string/icon_digunakan"
                         android:textColor="#111"
                         android:textSize="18sp" />
 
@@ -79,7 +81,8 @@
                         android:layout_marginTop="20dp"
                         android:text="Materi dalam aplikasi ini bersumber dari:"
                         android:textColor="#111"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/textView31"
@@ -88,7 +91,8 @@
                         android:layout_marginTop="5dp"
                         android:text="Akutansi Tanpa Stres. Penulis Endra Mukti Sagoro. Penerbit ABPublisher."
                         android:textColor="#111"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/textView24"
@@ -97,7 +101,8 @@
                         android:layout_marginTop="5dp"
                         android:text="Standar Akuntansi Keuangan Entitas Mikro Kecil dan Menengah. Penulis Ikatan Akuntansi Indonesia. Penerbit Graha Akuntan."
                         android:textColor="#111"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/textView25"
@@ -106,7 +111,8 @@
                         android:layout_marginTop="20dp"
                         android:text="Dibuat Oleh"
                         android:textColor="#111"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/textView26"
@@ -114,7 +120,8 @@
                         android:layout_height="wrap_content"
                         android:text="Muhammad Arif Sulistya"
                         android:textColor="#111"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/textView28"
@@ -122,7 +129,8 @@
                         android:layout_height="wrap_content"
                         android:text="sulistyarif@gmail.com"
                         android:textColor="#111"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/textView32"
@@ -132,7 +140,8 @@
                         android:text="Temukan Developer Di"
                         android:textAlignment="center"
                         android:textColor="#111"
-                        android:textSize="30sp" />
+                        android:textSize="30sp"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
@@ -148,6 +157,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="#00FFFFFF"
+                        android:visibility="gone"
                         app:srcCompat="@drawable/facebook" />
 
                     <ImageButton
@@ -156,6 +166,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="#00FFFFFF"
+                        android:visibility="gone"
                         app:srcCompat="@drawable/instagram" />
                 </LinearLayout>
 

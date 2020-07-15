@@ -10,4 +10,12 @@
     <string name="menu7">Pengaturan</string>
     <string name="menu8">Tentang</string>
 
+    <string name="nama_dosen1">Endra Murti Sagoro, M.Sc.\nNIP 198504092010121005</string>
+    <string name="nama_dosen2">Isroah, M.Si.\nNIP 196607041992032003</string>
+    <string name="nama_dosen3">Amanita Novi Yushita, M.Si.\nNIP 197708102006042002</string>
+    <string name="nama_dosen4">Eko Putri Setiani, S.Pd., M.Acc.\nNIP 199201312019032014</string>
+
+    <string name="library_digunakan">com.karumi:dexter:4.2.0\nde.codecrafters.tableview:tableview:2.8.0\nde.hdodenhof:circleimageview:3.1.0</string>
+    <string name="icon_digunakan">-freepik\n-smalllikeart\n-Eucalyp\n-Ultlmatearm\n-catkuro\n-Good Ware</string>
+
 </resources>
