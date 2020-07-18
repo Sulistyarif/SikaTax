@@ -74,7 +74,7 @@ public class MenuUtamaActivity extends AppCompatActivity {
         if (!sharedPreferences.getBoolean("infoNeracaAwal", false)) {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(MenuUtamaActivity.this);
-            builder.setMessage("Pengaturan Neraca Awal Terdapat di Pengaturan > Pengaturan Neraca Awal")
+            builder.setMessage("Pengaturan Neraca Awal Terdapat di Pengaturan -> Pengaturan Neraca Awal")
                     .setCancelable(false)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
