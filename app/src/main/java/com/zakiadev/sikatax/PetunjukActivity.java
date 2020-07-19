@@ -20,7 +20,7 @@ public class PetunjukActivity extends AppCompatActivity {
 
         webView = (WebView)findViewById(R.id.wvMateri);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("file:///android_asset/petunjuk_pemakaian.html");
+        webView.loadUrl("file:///android_asset/petunjuk_pemakaian_sikatax.html");
 
     }
 }
