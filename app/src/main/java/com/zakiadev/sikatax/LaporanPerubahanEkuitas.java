@@ -105,7 +105,7 @@ public class LaporanPerubahanEkuitas extends AppCompatActivity {
 
 
 //        setting webView
-//        webView.loadUrl("file:///android_asset/perubahan_ekuitas.html");
+        webView.loadUrl("file:///android_asset/perubahan_ekuitas.html");
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setSupportZoom(true);
         webView.getSettings().setDisplayZoomControls(false);
