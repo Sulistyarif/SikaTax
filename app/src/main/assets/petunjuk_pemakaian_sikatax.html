@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+  <title>Petunjuk Pemakaian</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+
+	#myBtn {
+	  display: none;
+	  position: fixed;
+	  bottom: 12px;
+	  right: 30px;
+	  z-index: 99;
+	  font-size: 15px;
+	  border: none;
+	  outline: none;
+	  background-color: #3498db;
+	  color: white;
+	  cursor: pointer;
+	  padding: 10px;
+	  border-radius: 4px;
+	}
+
+	#myBtn:hover {
+	  background-color: #555;
+	}
+
+	<!-- buat bikin frame-->
+
+
+    ::selection { background-color: #E13300; color: white; }
+    ::-moz-selection { background-color: #E13300; color: white; }
+
+    body {
+        background-color: #fff;
+        margin: 40px;
+        font: 13px/20px normal Helvetica, Arial, sans-serif;
+        color: #4F5155;
+    }
+
+    a {
+        color: #003399;
+        background-color: transparent;
+        font-weight: normal;
+    }
+
+    h1 {
+        color: #444;
+        background-color: transparent;
+        border-bottom: 1px solid #D0D0D0;
+        font-size: 19px;
+        font-weight: normal;
+        text-align: center;
+        margin: 0 0 14px 0;
+        padding: 14px 15px 10px 15px;
+    }
+
+    code {
+        font-family: Consolas, Monaco, Courier New, Courier, monospace;
+        font-size: 12px;
+        background-color: #f9f9f9;
+        border: 1px solid #D0D0D0;
+        color: #002166;
+        display: block;
+        margin: 14px 0 14px 0;
+        padding: 12px 10px 12px 10px;
+    }
+
+    #container {
+        margin: 10px;
+        border: 1px solid #D0D0D0;
+        box-shadow: 0 0 8px #D0D0D0;
+    }
+
+    .col-md-12{
+        margin: 10px;
+        border: 1px solid #D0D0D0;
+        box-shadow: 0 0 8px #D0D0D0;
+    }
+
+    p {
+        margin: 12px 15px 12px 15px;
+    }
+
+	</style>
+<script type="text/javascript">
+
+  	window.onscroll = function() {scrollFunction()};
+	function scrollFunction() {
+	    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+	        document.getElementById("myBtn").style.display = "block";
+	    } else {
+	        document.getElementById("myBtn").style.display = "none";
+	    }
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+	    document.body.scrollTop = 0; // For Safari
+	    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+	}
+  </script>
+
+<body>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1 align="center">PETUNJUK PEMAKAIAN</h1>
+    <ol>
+      <li><a href="petunjuk_pemakaian_sikatax.html#settingDataAwal">Setting Data Awal Perusahaan</a></li>
+      <li><a href="petunjuk_pemakaian_sikatax.html#menuUtama">Menu Utama</a> </li>
+      <li><a href="petunjuk_pemakaian_sikatax.html#tampilanMenuMateri">Menu Materi</a> </li>
+      <li><a href="petunjuk_pemakaian_sikatax.html#memasukkanDataJurnal">Menu Jurnal dan Tambah Jurnal</a> </li>
+      <li><a href="petunjuk_pemakaian_sikatax.html#subMenuLaporan">Menu Laporan Keuangan dan Export PDF Laporan</a> </li>
+      <li><a href="petunjuk_pemakaian_sikatax.html#subMenuAnalisis">Menu Analisis Laporan Keuangan</a> </li>
+      <li><a href="petunjuk_pemakaian_sikatax.html#subMenuPajak">Menu Pajak</a> </li>
+      <li><a href="petunjuk_pemakaian_sikatax.html#subMenuPengaturan">Menu Pengaturan</a> </li>
+      <li><a href="petunjuk_pemakaian_sikatax.html#pengaturanPerusahaan">Pengaturan Data Perusahaan</a> </li>
+      <li><a href="petunjuk_pemakaian_sikatax.html#pengaturanAkun">Pengaturan Akun-Akun</a> </li>
+      <li><a href="petunjuk_pemakaian_sikatax.html#pengaturanBackupData">Backup Data</a> </li>
+      <li><a href="petunjuk_pemakaian_sikatax.html#pengaturanRestoreData">Restore Data</a> </li>
+      <li><a href="petunjuk_pemakaian_sikatax.html#pengaturanHapusSemuaData">Hapus Semua Data</a> </li>
+      
+    </ol>
+
+  </div>
+</div>
+<div class="col-md-12" id="settingDataAwal">
+  <h1>SETTING DATA PERUSAHAAN</h1>
+  <img src="pt1.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <img src="pt2.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li><p>Isikan data perusahaan anda pada kolom-kolom yang telah tersedia</p>
+      <ol type="a">
+        <li>Nama usaha anda</li>
+        <li>Pemilik perusahaan</li>
+        <li>Alamat usaha anda</li>
+        <li>Nomor telepon</li>
+      </ol>
+    </li>
+    <li>Jika sudah terisi maka tekan tombol simpan dan lanjutkan</li>
+    <li>Menu Nomor 3 digunakan untuk membaca petunjuk pemakaian aplikasi</li>
+    <li>Menu Nomor 4 digunakan untk langsung menuju ke Menu Utama, jika anda belum melakukan input saldo awal, maka akan muncul peringatan untuk memasukkan saldo awal yang terdapat pada menu setting</li>
+    <li>Menu Nomor 5 digunkaan untuk langsung menuju materi</li>
+  </ol>
+</div>
+<div class="col-md-12" id="menuUtama">
+  <h1>MENU UTAMA</h1>
+  <img src="pt3.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li>Menu petunjuk berisi panduan/petunjuk penggunaan aplikasi</li>
+    <li>Menu Materi berisi materi singkat tentang akuntansi perusahaan jasa </li>
+    <li>Menu Jurnal untuk memasukan data jurnal.</li>
+    <li>Menu Laporan untuk melihat laporan keuangan</li>
+    <li>Menu Analisis Laporan Keuangan untuk melihat analisis laporan keuangan</li>
+    <li>Menu Pajak UMKM untuk melihat besar pajak yang harus dibayarkan pada bulan ini</li>
+    <li>Menu Pengaturan pengaturan</li>
+    <li>Menu tentang, berisi informasi tentang aplikasi</li>
+  </ol>
+</div>
+<!-- menu materi -->
+<div class="col-md-12" id="tampilanMenuMateri">
+  <h1>TAMPILAN MENU MATERI</h1>
+  <img src="pt4.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <img src="pt5.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <img src="pt6.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <img src="pt7.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li>Daftar materi yang bisa anda pilih</li>
+    <li>Tombol yang dapat anda pilih untuk mengetahui manfaat dari masing-masing laporan keuangan</li>
+    <li>Tombol yang dapat anda pilih untuk mengetahui penjelasan dari masing-masing jenis-jenis transaki </li>
+    <li>Tombol yang dapat anda pilih untuk mengetahui penjelasan dari masing-masing jenis transaski penyesuaian.</li>
+  </ol>
+</div>
+<div class="col-md-12" id="memasukkanDataJurnal">
+  <h1>MEMASUKKAN DATA JURNAL</h1>
+  <img src="pt8.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <img src="pt9.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li>Tombol jika anda ingin menambah jurnal</li>
+    <li>Tombol restart, untuk mengulang jika terjadi kesalahan</li>
+    <li>Tombol tanggal, pilih tanggal terjadinya transaksi </li>
+    <li>Kolom keterangan, isikan keterangan transaksi pada kolom tersebut</li>
+    <li>Pilih jenis transaksi, yang akan anda masukkan. </li>
+    <li>Pilih akun debet yang sesuai dengan transaksi yang anda masukan</li>
+    <li>Masukan nominal debet </li>
+    <li>Pilih akun kredit yang sesuai dengan transaksi yang anda masukan</li>
+    <li>Masukan nominal kredit  </li>
+    <li>Tombol tambah akun debet dan tambah akun kredit digunakan jika transaksi melibatkan beberapa akun.</li>
+    <li>Tombol simpan untuk menyimpan transaksi.</li>
+    <p>NOTE: Jika nominal yang anda masukan tidak seimbang akan muncul pemberitahuan</p>
+  </ol>
+</div>
+<div class="col-md-12" id="subMenuLaporan">
+  <h1>SUB MENU LAPORAN</h1>
+  <img src="pt10.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <img src="pt11.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li>Tombol untuk melihat rekapitulasi jurnal selama periode berjalan.</li>
+    <li>Tombol untuk melihat Neraca saldo</li>
+    <li>Tombol untuk melihat lapora Laba/rugi</li>
+    <li>Tombol untuk melihat laporan perubahan ekuitas</li>
+    <li>Tombol untuk melihat Neraca</li>
+    <li>Tombol untuk melihat Laporan Arus Kas</li>
+    <li>Tombol untuk covert PDF, mengubah file menjadi PDF.</li>
+  </ol>
+</div>
+<div class="col-md-12" id="subMenuAnalisis">
+  <h1>SUB MENU ANALISIS LAPORAN KEUANGAN</h1>
+  <img src="pt12.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <img src="pt13.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li>Tombol untuk melihat analisis rasio profitabilitas.</li>
+    <li>Tombol untuk melihat analisis rasio likuiditas</li>
+    <li>Tombol untuk melihat detail analisis dari rasio profitabilitas atau rasio likuiditas</li>
+  </ol>
+</div>
+<div class="col-md-12" id="subMenuPajak">
+  <h1>SUB MENU PAJAK</h1>
+  <img src="pt14.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li>Tombol untuk melihat besar pajak bulan ini dengan asumsi besar pajak 1%</li>
+    <li>Tombol untuk melihat besar pajak bulan ini dengan asumsi besar pajak 0.5%</li>
+  </ol>
+</div>
+<div class="col-md-12" id="subMenuPengaturan">
+  <h1>SUB MENU PENGATURAN</h1>
+  <img src="pt15.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li>Tombol untuk mengatur atau mengedit identitas perusahaan</li>
+    <li>Tombol untuk melihat atau menambah akun</li>
+    <li>Tombol untuk mencadangkan seluruh data yang telah dimasukan.</li>
+    <li>Tombol untuk mengembalikan data seperti semula setelah dihapus.</li>
+    <li>Tombol untuk menghapus semua data yang telah dimasukan. </li>
+  </ol>
+</div>
+<div class="col-md-12" id="pengaturanPerusahaan">
+  <h1>PENGATURAN PERUSAHAAN</h1>
+  <img src="pt16.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li>Tekan tombol <b>"Edit"</b> untuk mengedit identitas perusahaan.</li>
+    <li>Tekan tombol <b>"Simpan"</b> untuk menyimpan perubahan identias perusahaan </li>
+  </ol>
+</div>
+<div class="col-md-12" id="pengaturanAkun">
+  <h1>PENGATURAN AKUN</h1>
+  <img src="pt17.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <img src="pt18.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <img src="pt19.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li>Pilih jenis akun mana yang akan anda tambahkan</li>
+    <li>Tombol untuk menambah akun</li>
+    <li>Masukkan kode akun dan nama akun yang akan anda tambahkan di kolom yang telah tersedia</li>
+    <li>Tekan tombol <b>"Tambahkan"</b> untuk menyimpan akun yang anda tambahkan.</li>
+  </ol>
+</div>
+<div class="col-md-12" id="pengaturanBackupData">
+  <h1>PENGATURAN BACKUP DATA</h1>
+  <img src="pt20.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <img src="pt21.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li>Tekan tombol <b>"Backup Data"</b> </li>
+    <li>Tekan tombol <b>"Ya"</b> untuk backup/mencadangakan semua data, jika anda tidak ingin mencadangkan maka tekan <b>"Tidak"</b></li>
+  </ol>
+</div>
+<div class="col-md-12" id="pengaturanRestoreData">
+  <h1>PENGATURAN RESTORE DATA</h1>
+  <img src="pt22.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <img src="pt23.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li>Tekan tombol <b>"Restore"</b> jika anda ingin mengebalikan data yang telah anda hapus</li>
+    <li>Tekan tombol <b>"Ya"</b> jika anda yakin ingin merestore data,  tekan tombol <b>"Tidak"</b> untuk membatalkan</li>
+  </ol>
+</div>
+<div class="col-md-12" id="pengaturanHapusSemuaData">
+  <h1>PENGATURAN HAPUS SEMUA DATA</h1>
+  <img src="pt24.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <img src="pt25.png" class="img-responsive" style="max-width: 100%;" alt="Responsive image">
+  <ol>
+    <li>Tekan tombol <b>"Hapus semua data"</b> jika anda ingin menghapus semua data. </li>
+    <li>Tekan tombol <b>"Ya"</b> jika anda yakin ingin menghapus semua data,  tekan tombol <b>"Tidak"</b> untuk membatalkan.</li>
+  </ol>
+</div>
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">KEATAS</button>
+<div style="height:50px">
+</div>
+
+</body>
+</html>
