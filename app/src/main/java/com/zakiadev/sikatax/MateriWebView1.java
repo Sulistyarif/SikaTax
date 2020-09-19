@@ -61,6 +61,14 @@ public class MateriWebView1 extends AppCompatActivity {
                 webView.loadUrl("file:///android_asset/jurnal penutup dan jurnal pembalik.html");
                 break;
             }
+            case 7:{
+                webView.loadUrl("file:///android_asset/analisis_laporan_keuangan_materi.html");
+                break;
+            }
+            case 8:{
+                webView.loadUrl("file:///android_asset/pajak_umkm_materi.html");
+                break;
+            }
             default:{
                 Toast.makeText(this,"Menu belum siap",Toast.LENGTH_SHORT).show();
             }

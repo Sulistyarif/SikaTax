@@ -20,7 +20,7 @@ public class MenuUtamaMateri extends AppCompatActivity {
     ListView lvMenuMateri;
     String[] menu = {"Pengenalan Akutansi", "Elemen dan Akun-Akun dalam Laporan Keuangan"
             , "Kode Akun", "Pencatatan Transaksi Kedalam Jurnal", "Penyesuaian", "Macam-Macam dan Manfaat Laporan Keuangan"
-            , "Jurnal Penutup dan Pembalik" };
+            , "Jurnal Penutup dan Pembalik", "Analisis Laporan Keuangan", "Pajak UMKM" };
     TextView tvJudul;
 
     @Override
